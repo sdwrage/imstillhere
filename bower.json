@@ -24,6 +24,6 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.2.0"
+    "jquery": ">=1.9"
   }
 }
