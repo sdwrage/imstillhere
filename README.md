@@ -49,7 +49,7 @@ from the callback.
 The amount of time, in seconds, that the user can sit idle
 before the onIdleLimit callback method is called. Two arguments are
 passed into this callback; settings and resetTimer
-(a function used to reset the timer)
+(a function used to reset the timer).
 
 **redirectTimeLimit**
 
