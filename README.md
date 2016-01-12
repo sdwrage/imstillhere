@@ -1,5 +1,5 @@
 # imstillhere
-An idle timer jquery plugin (V 0.0.1)
+An idle timer jquery plugin (V 0.0.2)
 
 ## Here's an Example Configuration:
 
