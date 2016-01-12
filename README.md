@@ -40,12 +40,16 @@ This setting is useful for turning on logging. It is set to false by default.
 **idleTimeCheck**
 
 The amount of time, in seconds, that the plugin checks to see if the user has
-hit or has gone past the idle time limit.
+hit or has gone past the idle time limit. One argument is passed into this
+callback; settings. This allows you to access the settings for the plugin
+from the callback.
 
 **idleTimeLimit**
 
 The amount of time, in seconds, that the user can sit idle
-before the onIdleLimit callback method is called.
+before the onIdleLimit callback method is called. Two arguments are
+passed into this callback; settings and resetTimer
+(a function used to reset the timer)
 
 **redirectTimeLimit**
 
