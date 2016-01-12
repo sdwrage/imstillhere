@@ -3,18 +3,29 @@ An idle timer jquery plugin (V 0.0.1)
 
 ## Here's an Example Configuration:
 
+**html**
+
+```
+<a href="#" class="stillhere">I'm Still Here</a>
+```
+
+**Javascript**
+
 ```
 $(document).ready(function() {
   var imStillHere = $.imStillHere({
-    idleTimeLimit: 3600,
-    redirectTimeLimit: 30,
+    idleTimeLimit: 10,
+    redirectTimeLimit: 5,
     debug: true,
-    onIdleLimit: function() {
+    onIdleLimit: function(settings, resetTimer) {
       console.log("idle limit reached");
+      $('.stillhere').on('click', function() {
+      	console.log("timer reset!");
+        resetTimer();
+      })
     },
-
-    onRedirectLimit: function() {
-    	console.log("Redirecting");
+    onRedirectLimit: function(settings) {
+        console.log("Redirecting");
     },
   });
 });

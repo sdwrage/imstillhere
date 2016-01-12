@@ -6,7 +6,7 @@
      idleTimeCheck: 5,
      debug: false,
      onIdleLimit: function() {},
-     onRedirectLimit: function() {window.location.href = "http://www.github.com/sdwrage/imstillhere"}
+     onRedirectLimit: function() {}
   };
 
   $.extend({
@@ -17,22 +17,32 @@
       // Setup
       var lastActiveTime = Date.now();
       var idleTime = Date.now();
+
       if (settings.debug) {
       	console.log('I am initializing idle timer now!');
       }
 
-      $(document).on('click mousemove keypress', function() {
+      var checkMovement = function() {
       	lastActiveTime = Date.now();
         if (settings.debug) {
         	console.log("movement!");
         }
-      });
+      }
+
+      var resetTimer = function() {
+      	lastActiveTime = Date.now();
+        $(document).on('click mousemove keypress', checkMovement);
+      }
+
+      $(document).on('click mousemove keypress', checkMovement);
 
       setInterval(function() {
-      	console.log(lastActiveTime);
         idleTime = Date.now() - lastActiveTime;
       	if (idleTime > settings.idleTimeLimit * 1000) {
-        	settings.onIdleLimit(settings);
+
+          $(document).off('click mousemove keypress', checkMovement);
+        	settings.onIdleLimit(settings, resetTimer);
+
           if (idleTime >= settings.idleTimeLimit * 1000 + settings.redirectTimeLimit * 1000) {
           	settings.onRedirectLimit(settings);
           }
