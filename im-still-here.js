@@ -41,18 +41,3 @@
     }
   });
 }(jQuery));
-
-$(document).ready(function() {
-	var imStillHere = $.imStillHere({
-    idleTimeLimit: 10,
-    redirectTimeLimit: 6,
-    debug: true,
-    onIdleLimit: function() {
-      console.log("idle limit reached");
-    },
-
-    onRedirectLimit: function() {
-    	console.log("Redirecting");
-    },
-  });
-});
