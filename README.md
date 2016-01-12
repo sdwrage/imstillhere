@@ -5,7 +5,7 @@ An idle timer jquery plugin (V 0.0.1)
 
 ```
 $(document).ready(function() {
-	var imStillHere = $.imStillHere({
+  var imStillHere = $.imStillHere({
     idleTimeLimit: 3600,
     redirectTimeLimit: 30,
     debug: true,
